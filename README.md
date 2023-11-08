@@ -1,9 +1,12 @@
 # Blazor Design
-Blazor design ideas, using Tailwind CSS
+
+Basic blazor app using tailwind to test out design options.  Ability to change colours of elements dynamically to get an idea about different themes quickly.
 
 ### Using following
 - Blazor WASM
   - Cascading Properties
+  - Modal Popups
+  - State Management
 - Tailwind
   - Safelists
   - Layer Base (Global settings for elements)
