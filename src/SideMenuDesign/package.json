@@ -1,0 +1,12 @@
+{
+  "name": "sidemenudesign",
+  "version": "1.0.0",
+  "scripts": {
+    "build-dev": "npx tailwindcss -i ./Styles/styles.css -o ./wwwroot/css/app.css  --watch"
+  },
+  "author": "",
+  "devDependencies": {
+    "@tailwindcss/forms": "0.5.6",
+    "tailwindcss": "3.3.5"
+  }
+}

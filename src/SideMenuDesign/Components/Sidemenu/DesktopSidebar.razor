@@ -1,0 +1,15 @@
+﻿<div class="hidden top-0 sticky min-h-full @(ThemeState.SideBarBackgroundColour) xl:flex @(SidebarIsVisible ? "w-80" : "w-0") transition-all duration-500 overflow-x-hidden">
+    <div class="flex grow flex-col overflow-y-auto px-6">
+        <SidebarTitle />
+        <NavMenuItems />
+    </div>
+</div>
+
+@code {
+
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+
+    [Parameter]
+    public bool SidebarIsVisible { get; set; }
+}

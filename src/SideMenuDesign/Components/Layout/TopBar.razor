@@ -1,0 +1,99 @@
+﻿<div class="sticky top-0 flex h-12 shrink-0 items-center gap-x-3 @(ThemeState.TopBarBackColour) border-b @(ThemeState.TopBarShadow ? "shadow-md" : "") px-4 sm:gap-x-6 sm:px-6 lg:px-8">
+
+    <!-- Mobile side menu -->
+    <button type="button" @onclick="OnMobileMenuClick" class="-m-2 p-2 xl:hidden rounded-full
+            @(ThemeState.BurgerIconColour) @(ThemeState.BurgerBackColour) @(ThemeState.BurgerHoverBackColour)">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="h-5 w-5 @(ThemeState.BurgerIconColour)" viewBox="0 0 20 20" stroke="currentColor">
+            <path stroke-width=".5" fill="currentColor" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+        </svg>
+    </button>
+
+    <!-- Desktop side menu -->
+    <button type="button" @onclick="OnDesktopMenuClick" class="-m-2 p-2 hidden xl:flex rounded-full
+            @(ThemeState.BurgerIconColour) @(ThemeState.BurgerBackColour) @(ThemeState.BurgerHoverBackColour)">
+        <span class="sr-only">Open sidebar</span>
+        <svg class="h-5 w-5 @(ThemeState.BurgerIconColour)" viewBox="0 0 20 20" stroke="currentColor">
+            <path stroke-width=".5" fill="currentColor" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10zm0 5.25a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+        </svg>
+    </button>
+
+    <div class="flex flex-1 gap-x-4 self-stretch lg:gap-x-6">
+
+        <div class="flex flex-1 my-auto"></div>
+
+        <div class="flex my-auto items-center gap-x-4">
+
+            <!-- Notifications -->
+            <button type="button" @onclick="OnModalOpenClick">
+                <span class="sr-only">Notifications button</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-5 w-5 @(ThemeState.TopBarIconColour) @(ThemeState.TopBarIconHoverColour)" viewBox="0 0 16 16">
+                    <path stroke-width="2" d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2zM8 1.918l-.797.161A4.002 4.002 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4.002 4.002 0 0 0-3.203-3.92L8 1.917zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5.002 5.002 0 0 1 13 6c0 .88.32 4.2 1.22 6z" />
+                </svg>
+            </button>
+
+            <!-- Separator -->
+            <div class="h-6 w-px @(ThemeState.TopBarDividerColour)" aria-hidden="true"></div>
+
+            <!-- Profile dropdown -->
+            <div class="relative group">
+                <button type="button" class="-m-1.5 flex items-center p-1.5" id="user-menu-button"
+                        aria-expanded="false" aria-haspopup="true" @onclick="ToggleMenu">
+                    <span class="sr-only">Open user menu</span>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="h-6 w-6 lg:hidden @(ThemeState.TopBarIconColour) @(ThemeState.TopBarIconHoverColour)" viewBox="0 0 16 16">
+                        <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                    </svg>
+
+                    <span class="hidden lg:flex lg:items-center ml-2 @(ThemeState.TopBarTextColour) @(ThemeState.TopBarTextHoverColour)">
+                        <span class="text-base tracking-tighter font-medium" aria-hidden="true">
+                            Jimmy Starbucks
+                        </span>
+                        <svg class="ml-1 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"
+                             aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                  clip-rule="evenodd" />
+                        </svg>
+                    </span>
+
+                </button>
+
+                <div class="invisible group-focus-within:visible group-active:visible absolute right-0 z-10 mt-2.5 w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none"
+                     role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                    <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1"
+                       id="user-menu-item-0">Your profile</a>
+                    <a href="#" class="block px-3 py-1 text-sm leading-6 text-gray-900 hover:bg-gray-100" role="menuitem" tabindex="-1"
+                       id="user-menu-item-1">Sign out</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+
+    [Parameter]
+    public EventCallback OnMobileMenuClick { get; set; }
+
+    [Parameter]
+    public EventCallback OnDesktopMenuClick { get; set; }
+
+    [Parameter]
+    public EventCallback OnModalOpenClick { get; set; }
+
+    private bool _menuVisible = false;
+
+    private void ToggleMenu()
+    {
+        _menuVisible = !_menuVisible;
+    }
+
+}

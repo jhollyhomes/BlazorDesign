@@ -1,0 +1,51 @@
+﻿@using SideMenuDesign.Enums
+<div class=" flex gap-x-3 mb-2">
+    <div class="flex h-6 items-center">
+        <button @onclick="ShowColourPopup" class="bg-@(ColourPart) shadow-xl border border-gray-300 hover:bg-@(ColourPart)/80 w-5 h-5">
+        </button>
+    </div>
+    <div class="text-sm leading-6">
+        <label for="comments" class="font-normal text-sm @(ThemeState.ContentSectionLabelColour)">@Label</label>
+    </div>
+</div>
+
+@if (_displayColourSetting)
+{
+    <div @onclick="CloseColourPopup" class="fixed z-[5] inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    <ColourPopupSelector OnClose="CloseColourPopup" OnColourSelected="OnColourSelected" />
+}
+
+@code {
+
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+    [Parameter]
+    public string Label { get; set; } = default!;
+    [Parameter]
+    public string ColourPart { get; set; } = default!;
+    [Parameter]
+    public CssTypes CssType { get; set; } = CssTypes.Text;
+    [Parameter]
+    public Action<string> ColourState { get; set; } = default!;
+
+    private bool _displayColourSetting = false;
+
+    public void ShowColourPopup()
+    {
+        _displayColourSetting = true;
+    }
+
+    public void CloseColourPopup()
+    {
+        _displayColourSetting = false;
+    }
+
+    private void OnColourSelected(SelectedColour selectedColour)
+    {
+        var colourCss = selectedColour.CreateColourCss(CssType);
+
+        _displayColourSetting = false;
+
+        ColourState.Invoke(colourCss);
+    }
+}

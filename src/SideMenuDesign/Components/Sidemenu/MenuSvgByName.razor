@@ -1,0 +1,60 @@
+﻿@switch (SvgName.ToLower())
+{
+    case "folder":
+        <svg class="w-4 h-4 @(ThemeState.SideBarButtonIconColour)" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" fill="none" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+        </svg>
+        break;
+    case "task":
+        <svg class="w-4 h-4 @(ThemeState.SideBarButtonIconColour)" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" fill="none" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+        </svg>
+        break;
+    case "dashboard":
+        <svg class="w-4 h-4 @(ThemeState.SideBarButtonIconColour)" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" fill="none" d="M7.75 4H19M7.75 4a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 4h2.25m13.5 6H19m-2.25 0a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 10h11.25m-4.5 6H19M7.75 16a2.25 2.25 0 0 1-4.5 0m4.5 0a2.25 2.25 0 0 0-4.5 0M1 16h2.25" />
+        </svg>
+        break;
+    case "usage":
+        <svg class="w-4 h-4 @(ThemeState.SideBarButtonIconColour)" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" fill="none" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" />
+        </svg>
+        break;
+    case "company":
+        <svg class="w-4 h-4 @(ThemeState.SideBarButtonIconColour)" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" fill="none" d="M3 1h12M3 1v16M3 1H2m13 0v16m0-16h1m-1 16H3m12 0h2M3 17H1M6 4h1v1H6V4Zm5 0h1v1h-1V4ZM6 8h1v1H6V8Zm5 0h1v1h-1V8Zm-3 4h2a1 1 0 0 1 1 1v4H7v-4a1 1 0 0 1 1-1Z" />
+        </svg>
+        break;
+    case "repeat":
+        <svg class="w-4 h-4 @(ThemeState.SideBarButtonIconColour)" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" fill="none" d="m1 14 3-3m-3 3 3 3m-3-3h16v-3m2-7-3 3m3-3-3-3m3 3H3v3" />
+        </svg>
+        break;
+    case "bell":
+        <svg class="w-4 h-4 @(ThemeState.SideBarButtonIconColour)" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" fill="none" d="M8 3.464V1.1m0 2.365a5.338 5.338 0 0 1 5.133 5.368v1.8c0 2.386 1.867 2.982 1.867 4.175C15 15.4 15 16 14.462 16H1.538C1 16 1 15.4 1 14.807c0-1.193 1.867-1.789 1.867-4.175v-1.8A5.338 5.338 0 0 1 8 3.464ZM4.54 16a3.48 3.48 0 0 0 6.92 0H4.54Z" />
+        </svg>
+        break;
+    case "cog":
+        <svg class="w-4 h-4 @(ThemeState.SideBarButtonIconColour)" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+            <g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 11V9a1 1 0 0 0-1-1h-.757l-.707-1.707.535-.536a1 1 0 0 0 0-1.414l-1.414-1.414a1 1 0 0 0-1.414 0l-.536.535L12 2.757V2a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v.757l-1.707.707-.536-.535a1 1 0 0 0-1.414 0L2.929 4.343a1 1 0 0 0 0 1.414l.536.536L2.757 8H2a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h.757l.707 1.707-.535.536a1 1 0 0 0 0 1.414l1.414 1.414a1 1 0 0 0 1.414 0l.536-.535L8 17.243V18a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-.757l1.707-.708.536.536a1 1 0 0 0 1.414 0l1.414-1.414a1 1 0 0 0 0-1.414l-.535-.536.707-1.707H18a1 1 0 0 0 1-1Z" />
+                <path d="M10 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+            </g>
+        </svg>
+        break;
+    default:
+        <svg class="w-4 h-4 @(ThemeState.SideBarButtonIconColour)" viewBox="0 0 20 20" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.007v.008H3.75V6.75zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zM3.75 12h.007v.008H3.75V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm-.375 5.25h.007v.008H3.75v-.008zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+        </svg>
+        break;
+}
+
+@code {
+    
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+
+    [Parameter, EditorRequired]
+    public string SvgName { get; set; } = default!;
+}

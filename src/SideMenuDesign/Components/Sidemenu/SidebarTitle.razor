@@ -1,0 +1,14 @@
+﻿<div class="mx-auto">
+    <div class="text-center text-sm tracking-widest @(ThemeState.SideBarTitleManageMiColour) mt-4">
+        ManageMi
+    </div>
+    <div class="text-center font-bold text-2xl @(ThemeState.SideBarTitleOtherColour)">
+        TASKS
+    </div>
+</div>
+
+@code {
+
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+}

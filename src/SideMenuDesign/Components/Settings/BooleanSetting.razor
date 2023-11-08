@@ -1,0 +1,25 @@
+﻿<div class="flex gap-x-3 mb-2">
+    <div class="flex h-6 items-center">
+        <input type="checkbox" checked="@InitialValue" @onchange="OnCheckedChanged" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+    </div>
+    <div class="text-sm leading-6">
+        <label class="font-normal text-sm @(ThemeState.ContentSectionLabelColour)">@Label</label>
+    </div>
+</div>
+
+@code {
+
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+    [Parameter]
+    public string Label { get; set; } = default!;
+    [Parameter]
+    public bool InitialValue { get; set; } = default!;
+    [Parameter]
+    public Action<bool> BooleanState { get; set; } = default!;
+
+    private void OnCheckedChanged(ChangeEventArgs args)
+    {
+        BooleanState.Invoke((bool)args.Value);
+    }
+}

@@ -1,0 +1,83 @@
+﻿@inherits LayoutComponentBase
+@inject ThemeState ThemeState
+
+@implements IDisposable
+
+<div class="flex min-h-full @(ThemeState.ContentBackgroundColour)">
+    <CascadingValue Value="@ThemeState">
+        <MobileSidebar SidebarIsVisible="_displayMobileMenu"
+                       OnCloseMenu="CloseMobileMenu" />
+
+        <DesktopSidebar SidebarIsVisible="_displayDesktopMenu" />
+
+        <div class="flex flex-col w-full">
+            <TopBar OnMobileMenuClick="ToggleMobileMenu"
+                    OnDesktopMenuClick="ToggleDesktopMenu"
+                    OnModalOpenClick="OpenModal" />
+
+            <main class="px-2 py-2 sm:px-4 sm:py-4 lg:px-6 lg:py-4">
+                @Body
+            </main>
+        </div>
+
+    </CascadingValue>
+</div>
+
+@if (_displayModal)
+{
+    <div @onclick="CloseModal" class="fixed z-10 inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <ModalPopup OnClose="CloseModal" />
+}
+
+@code {
+
+    private bool _displayModal = false;
+    private bool _displayMobileMenu = false;
+    private bool _displayDesktopMenu = true;
+
+    private void OpenModal()
+    {
+        _displayModal = true;
+
+        StateHasChanged();
+    }
+
+    private void CloseModal()
+    {
+        _displayModal = false;
+
+        StateHasChanged();
+    }
+
+    public void ToggleMobileMenu()
+    {
+        _displayMobileMenu = !_displayMobileMenu;
+
+        StateHasChanged();
+    }
+
+    public void CloseMobileMenu()
+    {
+        _displayMobileMenu = false;
+
+        StateHasChanged();
+    }
+
+    public void ToggleDesktopMenu()
+    {
+        _displayDesktopMenu = !_displayDesktopMenu;
+
+        StateHasChanged();
+    }
+
+    protected override void OnInitialized()
+    {
+        ThemeState.OnStateChange += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        ThemeState.OnStateChange -= StateHasChanged;
+    }
+}

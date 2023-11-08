@@ -1,0 +1,32 @@
+﻿<div class="mt-6">
+    <nav class="flex flex-1 flex-col">
+        <ul role="list" class="-mx-2 space-y-2">
+            @foreach (var item in _menuItems)
+            {
+                <li class="@(ThemeState.SideBarButtonColour) @(ThemeState.SideBarButtonTextColour) @(ThemeState.SideBarButtonHoverColour) rounded-md">
+                    <NavLink href="@item.Url" ActiveClass="@(ThemeState.SideBarSelectedBackgroundColour)" Match="NavLinkMatch.All" class="flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-medium">
+                        <MenuSvgByName SvgName="@item.SvgName" />
+                        @item.Name
+                    </NavLink>
+                </li>
+            }
+        </ul>
+    </nav>
+</div>
+
+@code {
+
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+
+    private List<MenuItem> _menuItems = new List<MenuItem>();
+
+    protected override void OnParametersSet()
+    {
+        _menuItems.Clear();
+        _menuItems.Add(new MenuItem("Dashboard", "/dashboard", "dashboard"));
+        _menuItems.Add(new MenuItem("Tasks", "/tasks", "task"));
+        _menuItems.Add(new MenuItem("Settings", "/settings", "repeat"));
+    }
+
+}

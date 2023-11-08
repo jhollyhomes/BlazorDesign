@@ -1,0 +1,11 @@
+﻿<h1 class="flex @(ThemeState.ContentTitleTextColour)">@Title</h1>
+
+@code {
+
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+
+    [Parameter]
+    public string? Title { get; set; }
+
+}
