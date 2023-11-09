@@ -883,6 +883,10 @@ h3{
   margin-top: 1.5rem;
 }
 
+.mt-8{
+  margin-top: 2rem;
+}
+
 .block{
   display: block;
 }
@@ -987,6 +991,10 @@ h3{
   width: 100vw;
 }
 
+.min-w-\[50\%\]{
+  min-width: 50%;
+}
+
 .flex-1{
   flex: 1 1 0%;
 }
@@ -1003,6 +1011,14 @@ h3{
   flex-grow: 1;
 }
 
+.basis-1\/2{
+  flex-basis: 50%;
+}
+
+.basis-full{
+  flex-basis: 100%;
+}
+
 .origin-top-right{
   transform-origin: top right;
 }
@@ -1011,8 +1027,16 @@ h3{
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.grid-cols-1{
-  grid-template-columns: repeat(1, minmax(0, 1fr));
+.auto-cols-max{
+  grid-auto-columns: max-content;
+}
+
+.grid-flow-col{
+  grid-auto-flow: column;
+}
+
+.grid-cols-2{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .flex-row{
@@ -1077,6 +1101,10 @@ h3{
 .gap-x-6{
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
+}
+
+.gap-y-3{
+  row-gap: 0.75rem;
 }
 
 .space-y-2 > :not([hidden]) ~ :not([hidden]){
@@ -21211,6 +21239,11 @@ h3{
   padding-right: 1.5rem;
 }
 
+.px-8{
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .py-1{
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
@@ -21224,6 +21257,11 @@ h3{
 .py-3{
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+
+.py-6{
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
 
 .pb-4{
@@ -61577,8 +61615,8 @@ h3{
     display: none;
   }
 
-  .lg\:grid-cols-2{
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .lg\:basis-1\/2{
+    flex-basis: 50%;
   }
 
   .lg\:items-center{
@@ -61594,6 +61632,10 @@ h3{
          column-gap: 1.5rem;
   }
 
+  .lg\:gap-y-4{
+    row-gap: 1rem;
+  }
+
   .lg\:px-6{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -61607,11 +61649,6 @@ h3{
   .lg\:py-4{
     padding-top: 1rem;
     padding-bottom: 1rem;
-  }
-
-  .lg\:py-6{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
   }
 }
 

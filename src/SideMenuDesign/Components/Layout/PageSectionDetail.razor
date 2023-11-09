@@ -1,0 +1,32 @@
+﻿<div class="px-4 lg:px-6 py-2 lg:py-4 @(ThemeState.ContentSectionBackColour) 
+    @(ThemeState.ContentSectionRounded ? "rounded-lg" : "")  @(ThemeState.ContentSectionShadow? "shadow-lg" : "") ">
+
+    <h2 class="text-base font-semibold leading-7 @(ThemeState.ContentSectionTitleColour)">
+        @Title
+    </h2>
+
+    <p class="mt-1 text-sm leading-6 @(ThemeState.ContentSectionParagraphColour)">
+        @Paragraph
+    </p>
+
+    <fieldset>
+        <hr class="my-3" />
+        @ChildContent
+    </fieldset>
+
+</div>
+@code {
+
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; } = default!;
+
+    [Parameter]
+    public string Title { get; set; } = default!;
+
+    [Parameter]
+    public string Paragraph { get; set; } = default!;
+
+}
