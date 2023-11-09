@@ -34,6 +34,11 @@ public class ThemeState
         TopBarTextHoverColour = "hover:text-gray-600";
         TopBarDividerColour = "bg-gray-200";
         TopBarShadow = true;
+
+        ButtonTextColour = "text-white";
+        ButtonColour = "bg-indigo-600";
+        ButtonHoverColour = "bg-indigo-500";
+        CheckBoxColour = "text-indigo-600";
     }
 
     public string ContentBackgroundColour { get; private set; } = default!;
@@ -45,7 +50,10 @@ public class ThemeState
     public string ContentSectionParagraphColour { get; private set; } = default!;
     public string ContentSectionLabelColour { get; private set; } = default!;
 
-
+    public string ButtonTextColour { get; private set; } = default!;
+    public string ButtonColour { get; private set; } = default!;
+    public string ButtonHoverColour { get; private set; } = default!;
+    public string CheckBoxColour { get; private set; } = default!;
     public string SideBarTitleManageMiColour { get; private set; } = default!;
     public string SideBarTitleOtherColour { get; private set; } = default!;
     public string SideBarBackgroundColour { get; private set; } = default!;
@@ -115,7 +123,27 @@ public class ThemeState
         ContentSectionLabelColour = value;
         NotifyStateChanged();
     }
-    
+
+    public void SetButtonTextColour(string value)
+    {
+        ButtonTextColour = value;
+        NotifyStateChanged();
+    }
+    public void SetButtonColour(string value)
+    {
+        ButtonColour = value;
+        NotifyStateChanged();
+    }
+    public void SetButtonHoverColour(string value)
+    {
+        ButtonHoverColour = value;
+        NotifyStateChanged();
+    }
+    public void SetCheckBoxColour(string value)
+    {
+        CheckBoxColour = value;
+        NotifyStateChanged();
+    }
     public void SetSideBarTitleManageMiColour(string value)
     {
         SideBarTitleManageMiColour = value;
@@ -214,7 +242,6 @@ public class ThemeState
         NotifyStateChanged();
     }
 
-    
     private void NotifyStateChanged() => OnStateChange?.Invoke();
 }
 

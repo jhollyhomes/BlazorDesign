@@ -1,0 +1,36 @@
+﻿<div class="my-5 flex items-center justify-start gap-x-6">
+    <PrimaryButton ButtonName="Refresh" OnClick="RecreateThemeValues" />
+</div>
+
+<fieldset>
+    @if (ThemeValues != null)
+    {
+        @foreach (var themeValue in ThemeValues)
+        {
+            <div>@themeValue</div>
+        }
+    }
+</fieldset>
+
+@code {
+
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+
+    private List<string> ThemeValues = new List<string>();
+
+    private void RecreateThemeValues()
+    {
+        ThemeValues.Clear();
+
+        var type = ThemeState.GetType();
+        var properties = type.GetProperties();
+
+        foreach (var item in properties)
+        {
+            var propertyName = item.Name;
+            var value = item.GetValue(ThemeState);
+            ThemeValues.Add($"{propertyName} = \"{value}\";");
+        }
+    }
+}

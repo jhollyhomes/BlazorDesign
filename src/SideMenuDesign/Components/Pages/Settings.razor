@@ -1,63 +1,8 @@
 ﻿@page "/settings"
-@using System.Text;
-@using System.Reflection;
 
 <PageTitle>Settings</PageTitle>
 
 <PageSectionWrapper Title="Settings">
-    <PageSection>
-        <PageSectionDetail Title="Top bar" Paragraph="Top bar theme colours">
-
-            <ColourSetting Label="Top Bar Back Colour" ColourState="ThemeState.SetTopBarBackColour"
-                           ColourPart="@(ThemeState.TopBarBackColour?.RemoveTailwindPrefix())" CssType="CssTypes.Background" />
-
-            <ColourSetting Label="Top Bar Icon Colour" ColourState="ThemeState.SetTopBarIconColour"
-                           ColourPart="@(ThemeState.TopBarIconColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
-
-            <ColourSetting Label="Top Bar Icon Hover Colour" ColourState="ThemeState.SetTopBarIconHoverColour"
-                           ColourPart="@(ThemeState.TopBarIconHoverColour?.RemoveTailwindPrefix())" CssType="CssTypes.HoverText" />
-
-            <ColourSetting Label="Top Bar Text Colour" ColourState="ThemeState.SetTopBarTextColour"
-                           ColourPart="@(ThemeState.TopBarTextColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
-
-            <ColourSetting Label="Top Bar Text Hover Colour" ColourState="ThemeState.SetTopBarTextHoverColour"
-                           ColourPart="@(ThemeState.TopBarTextHoverColour?.RemoveTailwindPrefix())" CssType="CssTypes.HoverText" />
-
-            <ColourSetting Label="Top Bar Divider Colour" ColourState="ThemeState.SetTopBarDividerColour"
-                           ColourPart="@(ThemeState.TopBarDividerColour?.RemoveTailwindPrefix())" CssType="CssTypes.Background" />
-
-            <BooleanSetting Label="Top Bar Shadow" InitialValue="@(ThemeState.TopBarShadow)" BooleanState="@(ThemeState.SetTopBarShadow)">
-            </BooleanSetting>
-
-        </PageSectionDetail>
-        <PageSectionDetail Title="Content" Paragraph="Content theme design colours">
-
-            <ColourSetting Label="Content Background Colour" ColourState="ThemeState.SetContentBackgroundColour"
-                           ColourPart="@(ThemeState.ContentBackgroundColour?.RemoveTailwindPrefix())" CssType="CssTypes.Background" />
-
-            <ColourSetting Label="Content Title Text Colour" ColourState="ThemeState.SetContentTitleTextColour"
-                           ColourPart="@(ThemeState.ContentTitleTextColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
-
-            <ColourSetting Label="Content Section Back Colour" ColourState="ThemeState.SetContentSectionBackColour"
-                           ColourPart="@(ThemeState.ContentSectionBackColour?.RemoveTailwindPrefix())" CssType="CssTypes.Background" />
-
-            <BooleanSetting Label="Content Section Rounded" InitialValue="@(ThemeState.ContentSectionRounded)" BooleanState="@(ThemeState.SetContentSectionRounded)">
-            </BooleanSetting>
-
-            <BooleanSetting Label="Content Section Shadow" InitialValue="@(ThemeState.ContentSectionShadow)" BooleanState="@(ThemeState.SetContentSectionShadow)">
-            </BooleanSetting>
-
-            <ColourSetting Label="Content Section Title Colour" ColourState="ThemeState.SetContentSectionTitleColour"
-                           ColourPart="@(ThemeState.ContentSectionTitleColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
-
-            <ColourSetting Label="Content Section Paragraph Colour" ColourState="ThemeState.SetContentSectionParagraphColour"
-                           ColourPart="@(ThemeState.ContentSectionParagraphColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
-
-            <ColourSetting Label="Content Section Label Colour" ColourState="ThemeState.SetContentSectionLabelColour"
-                           ColourPart="@(ThemeState.ContentSectionLabelColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
-
-        </PageSectionDetail>
-    </PageSection>
     <PageSection>
         <PageSectionDetail Title="Sidebar" Paragraph="Desktop and mobile side bar theme colours">
 
@@ -89,6 +34,30 @@
                            ColourPart="@(ThemeState.SideBarButtonTextColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
 
         </PageSectionDetail>
+        <PageSectionDetail Title="Top bar" Paragraph="Top bar theme colours">
+
+            <ColourSetting Label="Top Bar Back Colour" ColourState="ThemeState.SetTopBarBackColour"
+                           ColourPart="@(ThemeState.TopBarBackColour?.RemoveTailwindPrefix())" CssType="CssTypes.Background" />
+
+            <ColourSetting Label="Top Bar Icon Colour" ColourState="ThemeState.SetTopBarIconColour"
+                           ColourPart="@(ThemeState.TopBarIconColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
+
+            <ColourSetting Label="Top Bar Icon Hover Colour" ColourState="ThemeState.SetTopBarIconHoverColour"
+                           ColourPart="@(ThemeState.TopBarIconHoverColour?.RemoveTailwindPrefix())" CssType="CssTypes.HoverText" />
+
+            <ColourSetting Label="Top Bar Text Colour" ColourState="ThemeState.SetTopBarTextColour"
+                           ColourPart="@(ThemeState.TopBarTextColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
+
+            <ColourSetting Label="Top Bar Text Hover Colour" ColourState="ThemeState.SetTopBarTextHoverColour"
+                           ColourPart="@(ThemeState.TopBarTextHoverColour?.RemoveTailwindPrefix())" CssType="CssTypes.HoverText" />
+
+            <ColourSetting Label="Top Bar Divider Colour" ColourState="ThemeState.SetTopBarDividerColour"
+                           ColourPart="@(ThemeState.TopBarDividerColour?.RemoveTailwindPrefix())" CssType="CssTypes.Background" />
+
+            <BooleanSetting Label="Top Bar Shadow" InitialValue="@(ThemeState.TopBarShadow)" BooleanState="@(ThemeState.SetTopBarShadow)">
+            </BooleanSetting>
+
+        </PageSectionDetail>
         <PageSectionDetail Title="Burger" Paragraph="The menu expand collapse button theme colours">
 
             <ColourSetting Label="Burger Back Colour" ColourState="ThemeState.SetBurgerBackColour"
@@ -103,45 +72,56 @@
         </PageSectionDetail>
     </PageSection>
     <PageSection>
+        <PageSectionDetail Title="Content" Paragraph="Content theme design colours">
+
+            <ColourSetting Label="Content Background Colour" ColourState="ThemeState.SetContentBackgroundColour"
+                           ColourPart="@(ThemeState.ContentBackgroundColour?.RemoveTailwindPrefix())" CssType="CssTypes.Background" />
+
+            <ColourSetting Label="Content Title Text Colour" ColourState="ThemeState.SetContentTitleTextColour"
+                           ColourPart="@(ThemeState.ContentTitleTextColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
+
+            <ColourSetting Label="Content Section Back Colour" ColourState="ThemeState.SetContentSectionBackColour"
+                           ColourPart="@(ThemeState.ContentSectionBackColour?.RemoveTailwindPrefix())" CssType="CssTypes.Background" />
+
+            <BooleanSetting Label="Content Section Rounded" InitialValue="@(ThemeState.ContentSectionRounded)" BooleanState="@(ThemeState.SetContentSectionRounded)">
+            </BooleanSetting>
+
+            <BooleanSetting Label="Content Section Shadow" InitialValue="@(ThemeState.ContentSectionShadow)" BooleanState="@(ThemeState.SetContentSectionShadow)">
+            </BooleanSetting>
+
+            <ColourSetting Label="Content Section Title Colour" ColourState="ThemeState.SetContentSectionTitleColour"
+                           ColourPart="@(ThemeState.ContentSectionTitleColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
+
+            <ColourSetting Label="Content Section Paragraph Colour" ColourState="ThemeState.SetContentSectionParagraphColour"
+                           ColourPart="@(ThemeState.ContentSectionParagraphColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
+
+            <ColourSetting Label="Content Section Label Colour" ColourState="ThemeState.SetContentSectionLabelColour"
+                           ColourPart="@(ThemeState.ContentSectionLabelColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
+
+        </PageSectionDetail>
+        <PageSectionDetail Title="Controls" Paragraph="The controls found in the content">
+
+            <ColourSetting Label="Button Colour" ColourState="ThemeState.SetButtonColour"
+                           ColourPart="@(ThemeState.ButtonColour?.RemoveTailwindPrefix())" CssType="CssTypes.Background" />
+
+            <ColourSetting Label="Button Hover Colour" ColourState="ThemeState.SetButtonHoverColour"
+                           ColourPart="@(ThemeState.ButtonHoverColour?.RemoveTailwindPrefix())" CssType="CssTypes.HoverBackground" />
+
+            <ColourSetting Label="Button Text Colour" ColourState="ThemeState.SetButtonTextColour"
+                           ColourPart="@(ThemeState.ButtonTextColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
+            
+            <ColourSetting Label="Check Box Colour" ColourState="ThemeState.SetCheckBoxColour"
+                           ColourPart="@(ThemeState.CheckBoxColour?.RemoveTailwindPrefix())" CssType="CssTypes.Text" />
+                           
+        </PageSectionDetail>
         <PageSectionDetail Title="Export theme settings" Paragraph="Export of theme values to be used to make themes">
-            <div class="my-5 flex items-center justify-start gap-x-6">
-                <button type="button" @onclick="RecreateThemeValues" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-                    Refresh
-                </button>
-            </div>
-            <fieldset>
-                @if (ThemeValues != null)
-                {
-                    @foreach (var themeValue in ThemeValues)
-                    {
-                        <div>@themeValue</div>
-                    }
-                }
-            </fieldset>
+            <ExportSettings />
         </PageSectionDetail>
     </PageSection>
-
 </PageSectionWrapper>
 
 @code {
 
     [CascadingParameter]
     protected ThemeState ThemeState { get; set; } = default!;
-
-    private List<string> ThemeValues = new List<string>();
-
-    private void RecreateThemeValues()
-    {
-        ThemeValues.Clear();
-
-        var type = ThemeState.GetType();
-        var properties = type.GetProperties();
-
-        foreach (var item in properties)
-        {
-            var propertyName = item.Name;
-            var value = item.GetValue(ThemeState);
-            ThemeValues.Add($"{propertyName} = \"{value}\";");
-        }
-    }
 }

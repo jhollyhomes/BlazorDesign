@@ -1,0 +1,16 @@
+﻿<button type="button" @onclick="OnClick" class="px-3 py-2 text-sm font-semibold @(ThemeState.ButtonTextColour) @(ThemeState.ButtonColour) @(ThemeState.ButtonHoverColour) rounded-md shadow-lg">
+    @ButtonName
+</button>
+
+@code {
+
+    [CascadingParameter]
+    protected ThemeState ThemeState { get; set; } = default!;
+
+    [Parameter]
+    public string ButtonName { get; set; } = default!;
+
+    [Parameter]
+    public EventCallback OnClick { get; set; }
+
+}

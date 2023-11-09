@@ -1,6 +1,6 @@
-﻿<div class="flex gap-x-3 mb-2">
+﻿<div class="flex gap-x-4 mb-2">
     <div class="flex h-6 items-center">
-        <input type="checkbox" checked="@InitialValue" @onchange="OnCheckedChanged" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600">
+        <input type="checkbox" checked="@InitialValue" @onchange="OnCheckedChanged" class="h-4 w-4 rounded border-gray-300 @(ThemeState.CheckBoxColour)">
     </div>
     <div class="text-sm leading-6">
         <label class="font-normal text-sm @(ThemeState.ContentSectionLabelColour)">@Label</label>

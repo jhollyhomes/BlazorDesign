@@ -7,9 +7,9 @@
                     <div class="flex flex-row mt-3">
 
                         <div>
-                            <button @onclick="() => SelectedWhiteColour()"class="bg-white w-6 h-6 border border-gray-400 shadow-xl m-0.5">
+                            <button @onclick="() => SelectedWhiteColour()"class="bg-white w-6 h-6 border border-gray-400 shadow-xl ml-1">
                             </button> 
-                            <button @onclick="() => SelectedBlackColour()" class="bg-black w-6 h-6 border border-gray-400 shadow-xl m-0.5">
+                            <button @onclick="() => SelectedBlackColour()" class="bg-black w-6 h-6 border border-gray-400 shadow-xl ml-1">
                             </button>
                         </div>
 
@@ -19,7 +19,7 @@
                                 @foreach (var shade in shades)
                                 {
                                     <button @onclick="() => SelectedColour(colour, shade)" 
-                                        class="bg-@(colour)-@(shade) w-6 h-6 border border-gray-400 shadow-xl m-0.5">
+                                        class="bg-@(colour)-@(shade) w-6 h-6 border border-gray-400 shadow-xl ml-0.5">
                                     </button>
                                 }
                             </div>
