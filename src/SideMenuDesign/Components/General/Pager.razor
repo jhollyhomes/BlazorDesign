@@ -1,0 +1,49 @@
+﻿@using Microsoft.AspNetCore.Components.QuickGrid
+
+<nav role="navigation" class="flex flex-row">
+
+    <strong>@State.TotalItemCount</strong> items
+
+    <button type="button" class="mx-2" @onclick="GoFirstAsync" disabled="@(!CanGoBack)" title="Go to first page" aria-title="Go to first page">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-red-400" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+            <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+        </svg>
+    </button>
+    <button type="button" class="mx-2" @onclick="GoPreviousAsync" disabled="@(!CanGoBack)" title="Go to previous page" aria-title="Go to previous page">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-left" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+        </svg>
+    </button>
+    <div class="pagination-text">
+        Page <strong>@(State.CurrentPageIndex + 1)</strong>
+        of <strong>@(State.LastPageIndex + 1)</strong>
+    </div>
+    <button type="button" class="mx-2" @onclick="GoNextAsync" disabled="@(!CanGoForwards)" title="Go to next page" aria-title="Go to next page">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+        </svg>
+    </button>
+    <button type="button" class="mx-2" @onclick="GoLastAsync" disabled="@(!CanGoForwards)" title="Go to last page" aria-title="Go to last page">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+            <path fill-rule="evenodd" d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+        </svg>
+    </button>
+</nav>
+
+@code {
+
+    [Parameter, EditorRequired] 
+    public PaginationState State { get; set; } = default!;
+
+    private bool CanGoBack => State.CurrentPageIndex > 0;
+    private bool CanGoForwards => State.CurrentPageIndex < State.LastPageIndex;
+
+    private Task GoToPageAsync(int pageIndex) => State.SetCurrentPageIndexAsync(pageIndex);
+
+    private Task GoFirstAsync() => GoToPageAsync(0);
+    private Task GoPreviousAsync() => GoToPageAsync(State.CurrentPageIndex - 1);
+    private Task GoNextAsync() => GoToPageAsync(State.CurrentPageIndex + 1);
+    private Task GoLastAsync() => GoToPageAsync(State.LastPageIndex.GetValueOrDefault(0));
+}

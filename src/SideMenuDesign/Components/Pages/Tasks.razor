@@ -1,29 +1,75 @@
 ﻿@page "/tasks"
 
+@inject HttpClient Http
+@inject NavigationManager NavManager
+
+@implements IDisposable
+
+@using Microsoft.AspNetCore.Components.QuickGrid
+
 <PageTitle>Tasks</PageTitle>
+
 <PageSectionTitle Title="Tasks" />
 
-<div>
-
-    <ul>
-        <li>
-            Task 1
-        </li>
-        <li>
-            Task 2
-        </li>
-        <li>
-            Task 3
-        </li>
-    </ul>
-
+<div class="page-size-chooser">
+    Items per page:
+    <select @bind="@pagination.ItemsPerPage">
+        <option>5</option>
+        <option>10</option>
+        <option>15</option>
+        <option>20</option>
+        <option>50</option>
+        <option>100</option>
+    </select>
 </div>
+
+<QuickGrid ItemsProvider="@taskItemProvider" Pagination="@pagination">
+
+    <PropertyColumn Title="Id"  Property="@(c => c.Id)" Sortable="true"  />
+    <PropertyColumn Property="@(c => c.Title)" Sortable="true" IsDefaultSortColumn="true" InitialSortDirection="SortDirection.Ascending" />
+    <PropertyColumn Title="User.LastName" Property="@(c => c.User.LastName)" Sortable="true"  />
+    <PropertyColumn Property="@(c => c.DueDate)" Sortable="true" />
+    <PropertyColumn Property="@(c => c.TaskItemStatus)" Sortable="true" />
+
+</QuickGrid>
+
+<Pager State="@pagination" />
 
 @code {
 
+    GridItemsProvider<TaskItemDto>? taskItemProvider;
 
+    PaginationState pagination = new PaginationState { ItemsPerPage = 10 };
 
+    protected override void OnInitialized()
+    {
+        pagination.TotalItemCountChanged += (sender, eventArgs) => StateHasChanged();
 
+        SetupTasksGrid();
+    }
 
+    private void SetupTasksGrid()
+    {
+        taskItemProvider = async request =>
+        {
+            var url = NavManager.GetUriWithQueryParameters("https://localhost:7229/api/tasks/", new Dictionary<string, object?>
+                        {
+                        { "pn", pagination.CurrentPageIndex },
+                        { "ps", pagination.ItemsPerPage },
+                        { "sf", request.SortByColumn?.Title },
+                        { "so", request.SortByAscending ? "ASC" : "DESC" },
+                        { "s", "" }
+                        });
 
+            var response = await Http.GetFromJsonAsync<QueryResult<TaskItemDto>>(url, request.CancellationToken);
+            var result = GridItemsProviderResult.From(response!.Data, response!.Count);
+
+            return result;
+        };
+    }
+
+    public void Dispose()
+    {
+        pagination.TotalItemCountChanged -= (sender, eventArgs) => StateHasChanged();
+    }
 }
