@@ -7,6 +7,7 @@ Basic blazor app using tailwind to test out design options.  Ability to change c
   - Cascading Properties
   - Modal Popups
   - State Management
+  - Blazor QuickGrid
 - Minimal API
   - Simple API to allow searching of tasks
   - Uses Bogus to create fake tasks data
