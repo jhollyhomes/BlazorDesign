@@ -23,4 +23,4 @@ Basic blazor app using tailwind to test out design options.  Ability to change c
 - `dotnet run` will execute client app
 
 ### Notes
-- As using TailwindCSS used own Pager display 
+- As using TailwindCSS used own Pager display when using Blazor Quickgrid
