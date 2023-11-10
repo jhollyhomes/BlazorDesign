@@ -7,6 +7,10 @@ Basic blazor app using tailwind to test out design options.  Ability to change c
   - Cascading Properties
   - Modal Popups
   - State Management
+- Minimal API
+  - Simple API to allow searching of tasks
+  - Uses Bogus to create fake tasks data
+  - Added CORS to allow the Blazor App to connect
 - Tailwind
   - Safelists
   - Layer Base (Global settings for elements)
@@ -14,6 +18,9 @@ Basic blazor app using tailwind to test out design options.  Ability to change c
  
 ### How to use
 
-- .NET7 but will probably run most versions
+- .NET8 but will probably run most versions from 6 >= (those that support the Blazor QuickGrid
 - `npm run build-dev` this will create the tailwind css files 
 - `dotnet run` will execute client app
+
+### Notes
+- As using TailwindCSS used own Pager display 
